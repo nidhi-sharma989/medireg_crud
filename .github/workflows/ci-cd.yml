@@ -47,7 +47,7 @@ jobs:
       run: mvn clean package -DskipTests
 
     - name: Upload JAR artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: medical-register-jar
         path: target/*.jar
