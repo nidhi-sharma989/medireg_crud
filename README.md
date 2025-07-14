@@ -1,6 +1,7 @@
 # Medical Register Application
 
 A comprehensive medical patient registration system built with Spring Boot 3.x, JSF, and modern DevOps practices.
+This application provides a robust CRUD interface for managing patient records, leveraging the latest technologies in the Java ecosystem.
 
 ## Features
 
