@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<ui:include src="header.xhtml" />
+<h:head>
+    <title>Update Patient</title>
+    <style>
+        .form-container {
+            max-width: 480px;
+            margin: 32px auto;
+            background: #f7f7f7;
+            padding: 32px 24px 24px 24px;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(33,150,243,0.08);
+        }
+        .form-title {
+            text-align: center;
+            color: #1976d2;
+            margin-bottom: 24px;
+        }
+        .form-label {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 6px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #bdbdbd;
+            border-radius: 6px;
+            margin-bottom: 6px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        .form-error {
+            color: red;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+            margin-top: 4px;
+            min-height: 1.5em;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 16px;
+        }
+        .form-actions .ui-button {
+            min-width: 120px;
+            padding: 8px 0;
+            font-size: 1em;
+            border-radius: 6px;
+        }
+    </style>
+</h:head>
+<h:body>
+    <f:metadata>
+        <f:viewParam name="id" value="#{patientBean.editPatientId}"/>
+        <f:event type="preRenderView" listener="#{patientBean.loadPatient(patientBean.editPatientId)}"/>
+    </f:metadata>
+    <div class="form-container">
+        <h2 class="form-title">Update Patient</h2>
+        <h:form>
+            <h:panelGrid columns="1" style="width:100%;">
+                <h:outputLabel for="name" value="Name (Please provide 5-50 characters):" styleClass="form-label" />
+                <h:inputText id="name" value="#{patientBean.editPatient.name}" styleClass="form-input" required="true"
+                    requiredMessage="Name is required. Should be 5-50 characters."
+                    validatorMessage="Name must be 5-50 characters and contain only letters and spaces.">
+                    <f:validateLength minimum="5" maximum="50" />
+                    <f:validateRegex pattern="[A-Za-z ]+" />
+                </h:inputText>
+                <h:message for="name" styleClass="form-error" />
+
+                <h:outputLabel for="age" value="Age (0-150):" styleClass="form-label" />
+                <h:inputText id="age" value="#{patientBean.editPatient.age}" styleClass="form-input" required="true"
+                    requiredMessage="Age is required. Should be between 0 and 150."
+                    validatorMessage="Age must be a number between 0 and 150.">
+                    <f:validateLongRange minimum="0" maximum="150" />
+                </h:inputText>
+                <h:message for="age" styleClass="form-error" />
+
+                <h:outputLabel for="history" value="Medical History (Please provide 10-200 characters):" styleClass="form-label" />
+                <h:inputTextarea id="history" value="#{patientBean.editPatient.medicalHistory}" styleClass="form-input" rows="3" required="true"
+                    requiredMessage="Medical history is required. Should be 10-200 characters."
+                    validatorMessage="Medical history must be between 10-200 characters.">
+                    <f:validateLength minimum="10" maximum="200" />
+                </h:inputTextarea>
+                <h:message for="history" styleClass="form-error" />
+            </h:panelGrid>
+            <div class="form-actions">
+                <h:commandButton value="Save" action="#{patientBean.updatePatient}" styleClass="ui-button" />
+                <h:commandButton value="Cancel" action="patients.xhtml" immediate="true" styleClass="ui-button" />
+            </div>
+        </h:form>
+    </div>
+    <ui:include src="footer.xhtml" />
+</h:body>
+</html>

@@ -1,0 +1,7 @@
+com/example/medicalregister/repository/PatientRepository.class
+com/example/medicalregister/service/PatientService.class
+com/example/medicalregister/controller/MedicalRegisterController.class
+com/example/medicalregister/security/SecurityConfig.class
+com/example/medicalregister/model/Patient.class
+com/example/medicalregister/MedicalRegisterApplication.class
+com/example/medicalregister/beans/PatientBean.class

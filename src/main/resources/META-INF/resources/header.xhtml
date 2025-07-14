@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <div style="background:#1976d2; color:white; padding:16px; display:flex; align-items:center;">
+        <!-- Inline SVG Logo -->
+        <span style="height:40px; width:40px; margin-right:16px; display:inline-block; vertical-align:middle;">
+            <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="gradientMedical" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#4CAF50" />
+                        <stop offset="100%" stop-color="#2196F3" />
+                    </linearGradient>
+                </defs>
+                <rect x="0" y="0" width="100" height="100" rx="20" ry="20" fill="url(#gradientMedical)"/>
+                <g transform="translate(50, 40)">
+                    <rect x="-15" y="-5" width="30" height="10" fill="#FFFFFF" rx="2" ry="2"/>
+                    <rect x="-5" y="-15" width="10" height="30" fill="#FFFFFF" rx="2" ry="2"/>
+                </g>
+                <g transform="translate(50, 75)">
+                    <circle cx="0" cy="-15" r="8" fill="#FFFFFF"/>
+                    <path d="M -12 -5 C -12 5, 12 5, 12 -5 Z" fill="#FFFFFF"/>
+                    <rect x="15" y="-20" width="10" height="20" fill="#FFFFFF" rx="2" ry="2"/>
+                    <line x1="17" y1="-17" x2="23" y2="-17" stroke="#4CAF50" stroke-width="1.5"/>
+                    <line x1="17" y1="-14" x2="23" y2="-14" stroke="#4CAF50" stroke-width="1.5"/>
+                    <line x1="17" y1="-11" x2="23" y2="-11" stroke="#4CAF50" stroke-width="1.5"/>
+                </g>
+                <text x="50" y="90" font-family="Inter, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="bold">MediReg</text>
+            </svg>
+        </span>
+        <span style="font-size:2em; font-weight:bold;">Medical Register</span>
+        <nav style="margin-left:auto;">
+            <a href="index.xhtml" style="color:white; margin-right:16px; text-decoration:none;">Home</a>
+            <a href="patients.xhtml" style="color:white; margin-right:16px; text-decoration:none;">Patients</a>
+            <a href="addPatient.xhtml" style="color:white; text-decoration:none;">Add Patient</a>
+        </nav>
+    </div>
+    <hr/>
+</ui:composition>

@@ -1,0 +1,11 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head><title>Add Patient</title></h:head>
+<h:body>
+<h:form>
+<h:inputText value="#{patientBean.patient.name}"/>
+<h:inputText value="#{patientBean.patient.age}"/>
+<h:inputTextarea value="#{patientBean.patient.medicalHistory}"/>
+<h:commandButton value="Save" action="#{patientBean.save}"/>
+</h:form>
+</h:body>
+</html>

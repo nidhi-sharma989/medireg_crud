@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Add Patient</title>
+</h:head>
+<h:body>
+    <h1>Add New Patient - New</h1>
+
+    <h:outputText value="JSF is working!" />
+
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="name" value="Name:" />
+            <h:inputText id="name" value="#{patientBean.newPatient.name}" />
+
+            <h:outputLabel for="age" value="Age:" />
+            <h:inputText id="age" value="#{patientBean.newPatient.age}" />
+
+            <h:outputLabel for="history" value="Medical History:" />
+            <h:inputTextarea id="history" value="#{patientBean.newPatient.medicalHistory}" />
+        </h:panelGrid>
+
+        <h:commandButton value="Save" action="#{patientBean.savePatient}" />
+        <h:commandButton value="Cancel" action="patients.xhtml" immediate="true" />
+    </h:form>
+</h:body>
+</html>

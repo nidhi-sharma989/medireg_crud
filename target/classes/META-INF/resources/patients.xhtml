@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<ui:include src="header.xhtml" />
+<h:head>
+    <title>Patients List</title>
+    <style>
+        .table-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #f7f7f7;
+            padding: 32px 24px 24px 24px;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(33,150,243,0.08);
+        }
+        .patients-title {
+            text-align: center;
+            color: #1976d2;
+            margin-bottom: 24px;
+        }
+        .patients-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+        }
+        .patients-table th, .patients-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: left;
+        }
+        .patients-table th {
+            background: #1976d2;
+            color: #fff;
+            font-weight: 600;
+        }
+        .patients-table tr:last-child td {
+            border-bottom: none;
+        }
+        .add-btn {
+            display: block;
+            margin: 0 auto;
+            min-width: 160px;
+            padding: 10px 0;
+            font-size: 1em;
+            border-radius: 6px;
+            background: #1976d2;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .add-btn:hover {
+            background: #1565c0;
+        }
+    </style>
+</h:head>
+<h:body>
+    <div class="table-container">
+        <h2 class="patients-title">Patients List</h2>
+        <h:dataTable value="#{patientBean.patients}" var="patient" styleClass="patients-table">
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                #{patient.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Age</f:facet>
+                #{patient.age}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Medical History</f:facet>
+                #{patient.medicalHistory}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Actions</f:facet>
+                <h:form style="display:inline; margin:0;">
+                    <h:commandLink style="background:none;border:none;cursor:pointer;padding:0;"
+                        title="Delete"
+                        onclick="return confirm('Do you want to remove the patient ' + '#{patient.name}' + ' from the records?');"
+                        action="#{patientBean.deletePatient(patient.id)}">
+                        <img src="https://img.icons8.com/ios/24/000000/delete-forever--v1.png" alt="Delete" style="vertical-align:middle;filter: grayscale(100%);margin-right:16px;" title="Delete" />
+                    </h:commandLink>
+                    <h:commandLink style="background:none;border:none;cursor:pointer;padding:0; text-decoration:underline;"
+                        title="Edit"
+                        action="#{patientBean.goToUpdatePatient(patient.id)}">
+                        <img src="https://img.icons8.com/ios/24/000000/edit--v1.png" alt="Edit" style="vertical-align:middle;filter: grayscale(100%); text-decoration:underline;" title="Edit" />
+                    </h:commandLink>
+                </h:form>
+            </h:column>
+        </h:dataTable>
+        <h:form>
+            <h:commandButton value="Add New Patient" action="addPatient.xhtml" styleClass="add-btn" />
+        </h:form>
+    </div>
+    <ui:include src="footer.xhtml" />
+</h:body>
+</html>
