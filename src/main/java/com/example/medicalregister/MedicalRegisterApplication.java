@@ -15,21 +15,5 @@ public class MedicalRegisterApplication {
         logger.info("Medical Register Application started successfully");
     }
 
-//     @Bean
-//     public ServletRegistrationBean<FacesServlet> facesServlet() {
-//         ServletRegistrationBean<FacesServlet> servlet = new ServletRegistrationBean<>(new FacesServlet(), "*.xhtml");
-//         servlet.setName("FacesServlet");
-//         servlet.setLoadOnStartup(1); // Ensure servlet
-//         return servlet;
-//     }
 
-//     @Bean
-//     public ServletContextInitializer servletContextInitializer() {
-//         return servletContext -> {
-//             servletContext.setInitParameter("jakarta.faces.FACELETS_SKIP_COMMENTS", "true");
-//             servletContext.setInitParameter("jakarta.faces.PROJECT_STAGE", "Development");
-//             // Register Weld CDI listener
-//             servletContext.addListener(org.jboss.weld.environment.servlet.Listener.class);
-//         };
-//     }
 }
