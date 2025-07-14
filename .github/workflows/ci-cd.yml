@@ -51,11 +51,3 @@ jobs:
       with:
         name: medical-register-jar
         path: target/*.jar
-
-    # Uncomment and configure for your deployment target
-    # - name: Deploy to server
-    #   if: github.ref == 'refs/heads/main'
-    #   run: |
-    #     # Deploy JAR to your server
-    #     # scp target/*.jar user@server:/path/to/deployment/
-    #     # ssh user@server 'systemctl restart medical-register'
